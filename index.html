@@ -1,0 +1,1726 @@
+<html>
+<head>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <script
+    src="http://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<style>
+/*
+ * Base structure
+ */
+
+html,
+body {
+  height: 100%;
+  /* background-color: #fff; */
+}
+body {
+  /* color: #fff; */
+  text-align: center;
+  /* text-shadow: 0 1px 3px rgba(0,0,0,.5); */
+}
+
+/* Padding for spacing */
+.inner {
+  padding: 30px;
+}
+
+.cover {
+  padding: 0 20px;
+} 
+
+</style>
+
+ <script>
+  var currentVisible = null;
+  var showcallout = function(elem) {
+    console.log(elem);
+    console.log($(elem).attr('id'));
+    var callout_id = $(elem).attr('id') + '-callout';
+    var callout_elem = '#' + callout_id;
+    console.log(callout_elem);
+    if (callout_elem) {
+      if ($(callout_elem).css("display") != "none" ){
+        $(callout_elem).hide();
+        currentVisible = null;
+      } else {
+        if (currentVisible){
+          $(currentVisible).hide();
+        }
+        $(callout_elem).show();
+        currentVisible = callout_elem;
+      }
+    }
+  }
+
+  function focusinelement(elem) { 
+    console.log(elem);
+    $(elem).css('cursor','pointer');
+    $(elem).css('opacity','0.7');
+  }
+
+  function focusoutelement(elem) { 
+    console.log(elem);
+    $(elem).css('cursor','default');
+    $(elem).css('opacity','1');
+  }
+ </script>
+
+</head>
+<body>
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="container">
+
+          <div class="inner cover">
+
+<svg
+   xmlns:xhtml="http://www.w3.org/1999/xhtml"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="862px"
+   height="562px"
+   version="1.1"
+   content="&lt;mxfile userAgent=&quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36&quot; version=&quot;8.0.7&quot; editor=&quot;www.draw.io&quot; type=&quot;google&quot;&gt;&lt;diagram id=&quot;2b79a2ec-0af1-5bfb-997c-2fcea7bc8d11&quot; name=&quot;Page-1&quot;&gt;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&lt;/diagram&gt;&lt;diagram id=&quot;c1deb586-d2b9-4dde-55d8-664644343a36&quot; name=&quot;Page-2&quot;&gt;UzV2zq1wL0osyPDNT0nNUTUyKM5ITMkvVzV2UTUyMgBioFBafk4KRMAQIpCbWJKBoqIgMT01ODkxJxVFWVJicnZ6UX5pHlQ3Qm14ZgrMBAtTJDM8UjPTM0qghhgagGWMXVWNnYvy80sgrNwK59QckEMzU5Cd4IZD1hBmeFFqXgkWDUAGwmwgByU0jF0B&lt;/diagram&gt;&lt;/mxfile&gt;"
+   id="svg2"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="test.svg">
+  <metadata
+     id="metadata272">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1052"
+     id="namedview270"
+     showgrid="false"
+     inkscape:zoom="1.1461717"
+     inkscape:cx="378.70336"
+     inkscape:cy="234.61161"
+     inkscape:window-x="1366"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g6"
+     inkscape:snap-grids="true"
+     inkscape:snap-to-guides="true"
+     inkscape:snap-bbox="true" />
+  <defs
+     id="defs4" />
+  <g
+     transform="translate(0.5,0.5)"
+     id="g6"
+     style="display:inline">
+    <rect
+       x="500"
+       y="111"
+       width="230"
+       height="440"
+       rx="34.5"
+       ry="34.5"
+       id="rect8"
+       style="fill:#ffffff;stroke:#000000;stroke-dasharray:3, 3" />
+    <rect
+       x="101"
+       y="371"
+       width="360"
+       height="180"
+       rx="27"
+       ry="27"
+       id="rect3320"
+       style="fill:#00d455;fill-opacity:1"
+       inkscape:label="" />
+    <rect
+       x="101"
+       y="216"
+       width="360"
+       height="130"
+       rx="19.5"
+       ry="19.5"
+       style="fill:#8080ff;fill-opacity:1"
+       id="rect9" />
+    <g
+       id="oss-bss"
+       onclick="showcallout(this)"
+       onmouseover="focusinelement(this)"
+       onmouseout="focusoutelement(this)">
+      <rect
+         x="101"
+         y="126"
+         width="360"
+         height="30"
+         id="rect11"
+         style="fill:#e9afdd;fill-opacity:1" />
+      <g
+         font-size="12px"
+         id="g16"
+         style="font-size:12px;text-anchor:middle;fill:#000000;font-family:Times New Roman">
+        <text
+           x="280.5"
+           y="144.5"
+           id="text18">OSS/BSS</text>
+      </g>
+    </g>
+    <g
+       id="orchestrator"
+       onclick="showcallout(this)"
+       onmouseover="focusinelement(this)"
+       onmouseout="focusoutelement(this)">
+      <rect
+         id="rect20"
+         height="95"
+         width="115"
+         y="126"
+         x="550"
+         style="fill:#d4aa00;fill-opacity:1" />
+      <g
+         id="g22"
+         font-size="12px"
+         style="font-size:12px;text-anchor:middle;fill:#000000;font-family:Times New Roman">
+        <text
+           id="text24"
+           y="170"
+           x="607">Orchestrator</text>
+        <text
+           id="text26"
+           y="184"
+           x="607">(MANO)</text>
+      </g>
+    </g>
+    <rect
+       x="111"
+       y="383"
+       width="340"
+       height="50"
+       rx="7.5"
+       ry="7.5"
+       id="rect28"
+       style="fill:#ffffff;stroke:#000000" />
+    <rect
+       x="111"
+       y="491"
+       width="340"
+       height="50"
+       rx="7.5"
+       ry="7.5"
+       id="nfvi"
+       style="fill:#ffffff;stroke:#000000"
+       onclick="showcallout(this)"
+       onmouseover="focusinelement(this)"
+       onmouseout="focusoutelement(this)"
+       inkscape:label="#nfvi" />
+    <g
+       id="virt"
+       inkscape:label="#virt"
+       onclick="showcallout(this)"
+       onmouseover="focusinelement(this)"
+       onmouseout="focusoutelement(this)">
+      <rect
+         height="30"
+         width="340"
+         y="441"
+         x="111"
+         style="fill:#ffffff;stroke:#000000"
+         id="rect23" />
+      <g
+         id="g34"
+         transform="translate(232.5,449.5)">
+        <switch
+           id="switch36">
+          <foreignObject
+             id="foreignObject38"
+             requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+             height="12"
+             width="96"
+             pointer-events="all">
+            <xhtml:div
+               style="display: inline-block; font-size: 12px; font-family: &quot;Times New Roman&quot;; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 98px; white-space: nowrap; word-wrap: normal; text-align: center;">
+              <xhtml:div
+                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">Virtualization Layer</xhtml:div>
+            </xhtml:div>
+          </foreignObject>
+          <text
+             id="text40"
+             font-size="12px"
+             y="12"
+             x="48"
+             style="font-size:12px;text-anchor:middle;fill:#000000;font-family:Times New Roman">Virtualization Layer</text>
+        </switch>
+      </g>
+    </g>
+    <rect
+       x="124"
+       y="499"
+       width="67"
+       height="35"
+       id="rect42"
+       style="fill:#ffffff;stroke:#000000" />
+    <g
+       font-size="12px"
+       id="g44"
+       style="font-size:12px;text-anchor:middle;fill:#000000;font-family:Times New Roman">
+      <text
+         x="157"
+         y="513"
+         id="text46">Computing</text>
+      <text
+         x="157"
+         y="527"
+         id="text48">Hardware</text>
+    </g>
+    <rect
+       x="248"
+       y="499"
+       width="67"
+       height="35"
+       id="rect50"
+       style="fill:#ffffff;stroke:#000000" />
+    <g
+       font-size="12px"
+       id="g52"
+       style="font-size:12px;text-anchor:middle;fill:#000000;font-family:Times New Roman">
+      <text
+         x="281"
+         y="513"
+         id="text54">Storage</text>
+      <text
+         x="281"
+         y="527"
+         id="text56">Hardware</text>
+    </g>
+    <rect
+       x="371"
+       y="499"
+       width="67"
+       height="35"
+       id="rect58"
+       style="fill:#ffffff;stroke:#000000" />
+    <g
+       font-size="12px"
+       id="g60"
+       style="font-size:12px;text-anchor:middle;fill:#000000;font-family:Times New Roman">
+      <text
+         x="404"
+         y="513"
+         id="text62">Network</text>
+      <text
+         x="404"
+         y="527"
+         id="text64">Hardware</text>
+    </g>
+    <rect
+       x="124"
+       y="390"
+       width="67"
+       height="35"
+       id="rect66"
+       style="fill:#ffffff;stroke:#000000" />
+    <g
+       font-size="12px"
+       id="g68"
+       style="font-size:12px;text-anchor:middle;fill:#000000;font-family:Times New Roman">
+      <text
+         x="157"
+         y="404"
+         id="text70">Virtual</text>
+      <text
+         x="157"
+         y="418"
+         id="text72">Computing</text>
+    </g>
+    <rect
+       x="248"
+       y="390"
+       width="67"
+       height="35"
+       id="rect74"
+       style="fill:#ffffff;stroke:#000000" />
+    <g
+       font-size="12px"
+       id="g76"
+       style="font-size:12px;text-anchor:middle;fill:#000000;font-family:Times New Roman">
+      <text
+         x="281"
+         y="404"
+         id="text78">Virtual</text>
+      <text
+         x="281"
+         y="418"
+         id="text80">Storage</text>
+    </g>
+    <rect
+       x="372"
+       y="391"
+       width="67"
+       height="35"
+       id="rect82"
+       style="fill:#ffffff;stroke:#000000" />
+    <g
+       font-size="12px"
+       id="g84"
+       style="font-size:12px;text-anchor:middle;fill:#000000;font-family:Times New Roman">
+      <text
+         x="405"
+         y="405"
+         id="text86">Virtual</text>
+      <text
+         x="405"
+         y="419"
+         id="text88">Networking</text>
+    </g>
+    <rect
+       x="124"
+       y="291"
+       width="67"
+       height="35"
+       id="rect90"
+       style="fill:#ffffff;stroke:#000000" />
+    <g
+       font-size="12px"
+       id="g92"
+       style="font-size:12px;text-anchor:middle;fill:#000000;font-family:Times New Roman">
+      <text
+         x="157"
+         y="312"
+         id="text94">VNF1</text>
+    </g>
+    <g
+       id="vnf"
+       onmouseout="focusoutelement(this)"
+       onmouseover="focusinelement(this)"
+       onclick="showcallout(this)">
+      <rect
+         id="rect96"
+         height="35"
+         width="67"
+         y="291"
+         x="248"
+         style="fill:#ffffff;stroke:#000000" />
+      <g
+         id="g98"
+         font-size="12px"
+         style="font-size:12px;text-anchor:middle;fill:#000000;font-family:Times New Roman">
+        <text
+           id="text100"
+           y="312"
+           x="281">VNF2</text>
+      </g>
+    </g>
+    <rect
+       x="371"
+       y="291"
+       width="67"
+       height="35"
+       id="rect102"
+       style="fill:#ffffff;stroke:#000000" />
+    <g
+       font-size="12px"
+       id="g104"
+       style="font-size:12px;text-anchor:middle;fill:#000000;font-family:Times New Roman">
+      <text
+         x="404"
+         y="312"
+         id="text106">VNF3</text>
+    </g>
+    <g
+       id="ems"
+       onmouseout="focusoutelement(this)"
+       onmouseover="focusinelement(this)"
+       onclick="showcallout(this)">
+      <rect
+         height="35"
+         width="67"
+         y="231"
+         x="248"
+         style="fill:#ffffff;stroke:#000000"
+         id="rect64" />
+      <g
+         id="g110"
+         font-size="12px"
+         style="font-size:12px;text-anchor:middle;fill:#000000;font-family:Times New Roman">
+        <text
+           id="text112"
+           y="252"
+           x="281">EMS2</text>
+      </g>
+    </g>
+    <rect
+       x="371"
+       y="231"
+       width="67"
+       height="35"
+       id="rect114"
+       style="fill:#ffffff;stroke:#000000" />
+    <g
+       font-size="12px"
+       id="g116"
+       style="font-size:12px;text-anchor:middle;fill:#000000;font-family:Times New Roman">
+      <text
+         x="404"
+         y="252"
+         id="text118">EMS3</text>
+    </g>
+    <rect
+       x="124"
+       y="231"
+       width="67"
+       height="40"
+       id="rect120"
+       style="fill:#ffffff;stroke:#000000" />
+    <g
+       font-size="12px"
+       id="g122"
+       style="font-size:12px;text-anchor:middle;fill:#000000;font-family:Times New Roman">
+      <text
+         x="157"
+         y="254.5"
+         id="text124">EMS1</text>
+    </g>
+    <g
+       id="vnf-manager"
+       onclick="showcallout(this)"
+       onmouseover="focusinelement(this)"
+       onmouseout="focusoutelement(this)">
+      <rect
+         id="rect126"
+         height="86.739998"
+         width="97.959999"
+         y="270"
+         x="550"
+         style="fill:#8080ff;fill-opacity:1" />
+      <rect
+         id="rect128"
+         height="86.739998"
+         width="97.959999"
+         y="279.13"
+         x="558.52002"
+         style="fill:#8080ff;fill-opacity:1" />
+      <rect
+         id="rect130"
+         height="86.739998"
+         width="97.959999"
+         y="288.26001"
+         x="567.03998"
+         style="fill:#8080ff;fill-opacity:1" />
+      <g
+         id="g132"
+         font-size="12px"
+         style="font-size:12px;text-anchor:middle;fill:#000000;font-family:Times New Roman">
+        <text
+           id="text134"
+           y="328.13"
+           x="615.52002">VNF</text>
+        <text
+           id="text136"
+           y="342.13"
+           x="615.52002">Manager(s)</text>
+      </g>
+    </g>
+    <g
+       id="vim"
+       onclick="showcallout(this)"
+       onmouseover="focusinelement(this)"
+       onmouseout="focusoutelement(this)">
+      <rect
+         id="rect138"
+         height="95"
+         width="115"
+         y="418"
+         x="550"
+         style="fill:#00d455;fill-opacity:1" />
+      <g
+         id="g140"
+         font-size="12px"
+         style="font-size:12px;text-anchor:middle;fill:#000000;font-family:Times New Roman">
+        <text
+           id="text142"
+           y="455"
+           x="607">Virtualized</text>
+        <text
+           id="text144"
+           y="469"
+           x="607">Infrastructrue</text>
+        <text
+           id="text146"
+           y="483"
+           x="607">Manager(s)</text>
+      </g>
+    </g>
+    <g
+       id="servicedef"
+       onclick="showcallout(this)"
+       onmouseover="focusinelement(this)"
+       onmouseout="focusoutelement(this)">
+      <path
+         stroke-miterlimit="10"
+         d="m 276,161 185,0 0,30 -200,0 0,-15 z"
+         inkscape:connector-curvature="0"
+         style="fill:#e9afdd;fill-opacity:1"
+         id="path88" />
+      <g
+         id="g150"
+         font-size="10px"
+         style="font-size:10px;text-anchor:middle;fill:#000000;font-family:Times New Roman">
+        <text
+           id="text152"
+           y="172.5"
+           x="360.5">Service, VNF and</text>
+        <text
+           id="text154"
+           y="184.5"
+           x="360.5">Infrastructure Description</text>
+      </g>
+    </g>
+    <path
+       d="m 158,291 0,-20"
+       stroke-miterlimit="10"
+       id="path156"
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke:#000000;stroke-miterlimit:10;stroke-dasharray:3, 3" />
+    <path
+       d="m 282,291 0,-25"
+       stroke-miterlimit="10"
+       id="path158"
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke:#000000;stroke-miterlimit:10;stroke-dasharray:3, 3" />
+    <path
+       d="m 405,291 0,-25"
+       stroke-miterlimit="10"
+       id="path160"
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke:#000000;stroke-miterlimit:10;stroke-dasharray:3, 3" />
+    <path
+       d="m 500,176 -39,0"
+       stroke-miterlimit="10"
+       id="path162"
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10" />
+    <g
+       font-size="9px"
+       id="g164"
+       style="font-size:9px;text-anchor:middle;fill:#000000;font-family:Times New Roman">
+      <rect
+         x="465"
+         y="162"
+         width="28"
+         height="11"
+         id="rect166"
+         style="fill:#ffffff;stroke:none" />
+      <text
+         x="478"
+         y="167.5"
+         id="text168">SE-Ma</text>
+    </g>
+    <path
+       d="m 550,313 -89,1"
+       stroke-miterlimit="10"
+       id="path170"
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10" />
+    <g
+       font-size="9px"
+       id="g172"
+       style="font-size:9px;text-anchor:middle;fill:#000000;font-family:Times New Roman">
+      <rect
+         x="464"
+         y="300"
+         width="36"
+         height="11"
+         id="rect174"
+         style="fill:#ffffff;stroke:none" />
+      <text
+         x="481.48001"
+         y="306.23999"
+         id="text176">Ve-Vnfm</text>
+    </g>
+    <path
+       d="m 461,465 89,1"
+       stroke-miterlimit="10"
+       id="path178"
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10" />
+    <g
+       font-size="9px"
+       id="g180"
+       style="font-size:9px;text-anchor:end;fill:#000000;font-family:Times New Roman">
+      <rect
+         x="468"
+         y="451"
+         width="23"
+         height="11"
+         id="rect182"
+         style="fill:#ffffff;stroke:none" />
+      <text
+         x="489.48999"
+         y="456.84"
+         id="text184">Nf-Vi</text>
+    </g>
+    <path
+       d="m 500,141 -39,0"
+       stroke-miterlimit="10"
+       id="path186"
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10" />
+    <g
+       font-size="9px"
+       id="g188"
+       style="font-size:9px;text-anchor:middle;fill:#000000;font-family:Times New Roman">
+      <rect
+         x="465"
+         y="128"
+         width="29"
+         height="11"
+         id="rect190"
+         style="fill:#ffffff;stroke:none" />
+      <text
+         x="478.5"
+         y="133.5"
+         id="text192">OS-Ma</text>
+    </g>
+    <path
+       d="m 281,371 0,-25"
+       stroke-miterlimit="10"
+       id="path194"
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10" />
+    <g
+       font-size="9px"
+       id="g196"
+       style="font-size:9px;fill:#000000;font-family:Times New Roman">
+      <rect
+         x="288"
+         y="353"
+         width="26"
+         height="11"
+         id="rect198"
+         style="fill:#ffffff;stroke:none" />
+      <text
+         x="287.5"
+         y="359.5"
+         id="text200">Vn-Nf</text>
+    </g>
+    <path
+       d="m 281,491 0,-20"
+       stroke-miterlimit="10"
+       id="path202"
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10" />
+    <g
+       font-size="9px"
+       id="g204"
+       style="font-size:9px;fill:#000000;font-family:Times New Roman">
+      <rect
+         x="287"
+         y="476"
+         width="25"
+         height="11"
+         id="rect206"
+         style="fill:#ffffff;stroke:none" />
+      <text
+         x="286.5"
+         y="482.5"
+         id="text208">VI-Ha</text>
+    </g>
+    <path
+       d="m 665,466 26,0 q 10,0 10,-10 l 0,-273 q 0,-10 -10,-9.72 L 665,174"
+       stroke-miterlimit="10"
+       id="path210"
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10" />
+    <g
+       font-size="9px"
+       id="g212"
+       style="font-size:9px;fill:#000000;font-family:Times New Roman">
+      <rect
+         x="704"
+         y="313"
+         width="23"
+         height="11"
+         id="rect214"
+         style="fill:#ffffff;stroke:none" />
+      <text
+         x="703.5"
+         y="319.5"
+         id="text216">Or-Vi</text>
+    </g>
+    <path
+       d="m 608,375 -0.24,43"
+       stroke-miterlimit="10"
+       id="path218"
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10" />
+    <g
+       font-size="9px"
+       id="g220"
+       style="font-size:9px;fill:#000000;font-family:Times New Roman">
+      <rect
+         x="610"
+         y="390"
+         width="34"
+         height="11"
+         id="rect222"
+         style="fill:#ffffff;stroke:none" />
+      <text
+         x="610.40002"
+         y="396.51001"
+         id="text224">Vi-Vnfm</text>
+    </g>
+    <path
+       d="m 607,270 0.17,-49.17"
+       stroke-miterlimit="10"
+       id="path226"
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10" />
+    <g
+       font-size="9px"
+       id="g228"
+       style="font-size:9px;fill:#000000;font-family:Times New Roman">
+      <rect
+         x="612"
+         y="246"
+         width="35"
+         height="11"
+         id="rect230"
+         style="fill:#ffffff;stroke:none" />
+      <text
+         x="611.57001"
+         y="252.50999"
+         id="text232">Or-Vnfm</text>
+    </g>
+    <g
+       id="orchestrator-callout"
+       style="display:none">
+      <g
+         id="g3249">
+        <flowRoot
+           xml:space="preserve"
+           id="flowRoot3201"
+           style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+           transform="translate(-0.5,-0.5)"><flowRegion
+             id="flowRegion3203"><rect
+               id="rect3205"
+               width="192.8158"
+               height="93.354248"
+               x="654.35223"
+               y="37.645752" /></flowRegion><flowPara
+             id="flowPara3207" /></flowRoot>        <g
+           id="g3227">
+          <g
+             id="g3255">
+            <g
+               id="g3219">
+              <g
+                 id="g3224">
+                <path
+                   style="fill:#fff2cc;stroke:#000000;stroke-width:2;stroke-miterlimit:10"
+                   inkscape:connector-curvature="0"
+                   d="m 673.5,136 -17.5,0 c -2.76,0 -5,-2.24 -5,-5 l 0,-95 c 0,-2.76 2.24,-5 5,-5 l 190,0 c 2.76,0 5,2.24 5,5 l 0,95 c 0,2.76 -2.24,5 -5,5 l -157.5,0 c -2.96,7.77 -11.71,13.6 -22.5,15 3.89,-2.85 6.68,-8.43 7.5,-15 z"
+                   stroke-miterlimit="10"
+                   id="path240" />
+              </g>
+            </g>
+          </g>
+          <text
+             xml:space="preserve"
+             style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+             x="654.71875"
+             y="43.436539"
+             id="text3371"
+             sodipodi:linespacing="125%"><tspan
+               sodipodi:role="line"
+               x="654.71875"
+               y="43.436539"
+               id="tspan3373"><tspan
+                 dx="0 0 0 0 0 0 2.6285152 0 2.6285133 0 0 0 0 0 0 0 2.6285095 0 0 0 0 0 0 0 0 0 0 0 0 2.6285172 0 0 0 2.6285095"
+                 x="654.71875"
+                 y="43.436539"
+                 style="font-size:11px;line-height:89.99999762%;font-family:Ubuntu Condensed;-inkscape-font-specification:'Ubuntu Condensed,'"
+                 id="tspan3375">Given a service description, the Management </tspan></tspan><tspan
+               sodipodi:role="line"
+               x="654.71875"
+               y="53.33654"
+               id="tspan3377"><tspan
+                 dx="0 0 0 0 1.0859375 0 0 0 0 0 0 0 0 0 0 0 0 1.0859375 0 0 0 0 0 0 1.0859375 0 0 0 0 0 0 0 0 0 1.0859375 0 0 0 1.0859375"
+                 x="654.71875"
+                 y="53.33654"
+                 style="font-size:11px;line-height:89.99999762%;font-family:Ubuntu Condensed;-inkscape-font-specification:'Ubuntu Condensed,'"
+                 id="tspan3379">and Organization (MANO) validates the service </tspan></tspan><tspan
+               sodipodi:role="line"
+               x="654.71875"
+               y="63.236542"
+               id="tspan3381"><tspan
+                 dx="0 0 0 0 0 0 0 0 0 0 0 0 0.69921875 0 0 0 0.69921875 0 0 0 0 0 0 0 0 0 0 0.69921875 0 0 0 0.69921875 0 0 0 0 0 0 0 0 0 0.69921875"
+                 x="654.71875"
+                 y="63.236542"
+                 style="font-size:11px;line-height:89.99999762%;font-family:Ubuntu Condensed;-inkscape-font-specification:'Ubuntu Condensed,'"
+                 id="tspan3383">description and identifies the resources needed </tspan></tspan><tspan
+               sodipodi:role="line"
+               x="654.71875"
+               y="73.136543"
+               id="tspan3385"><tspan
+                 dx="0 0 0 1.807292 0 0 0 0 0 0 0 0 0 1.8072891 0 0 0 1.8072891 0 0 0 0 0 0 0 1.8072891 0 0 0 1.8072891 0 0 0 0 0 0 0 0 0 0 0 0 1.8072968"
+                 x="654.71875"
+                 y="73.136543"
+                 style="font-size:11px;line-height:89.99999762%;font-family:Ubuntu Condensed;-inkscape-font-specification:'Ubuntu Condensed,'"
+                 id="tspan3387">to implement the service and instantiates the </tspan></tspan><tspan
+               sodipodi:role="line"
+               x="654.71875"
+               y="83.036545"
+               id="tspan3389"><tspan
+                 dx="0 0 0 0 0 0 0 0 5.019207 0 0 0 0 5.0192032 0 0 0 0 0 0 5.0192032 0 0 5.0192032 0 0 0 0 0 0 0 0 0 0 0 5.0191956 0 0 0 0 5.0192108"
+                 x="654.71875"
+                 y="83.036545"
+                 style="font-size:11px;line-height:89.99999762%;font-family:Ubuntu Condensed;-inkscape-font-specification:'Ubuntu Condensed,'"
+                 id="tspan3391">service flow graph. It acomplishes this by </tspan></tspan><tspan
+               sodipodi:role="line"
+               x="654.71875"
+               y="92.936546"
+               id="tspan3393"><tspan
+                 dx="0 0 0 0 0 0 0 0 0.67773438 0 0 0 0 0 0 0 0 0 0 0 0.67773438 0 0 0 0 0 0 0 0 0.67773438 0 0 0.67773438 0 0 0 0.67773438"
+                 x="654.71875"
+                 y="92.936546"
+                 style="font-size:11px;line-height:89.99999762%;font-family:Ubuntu Condensed;-inkscape-font-specification:'Ubuntu Condensed,'"
+                 id="tspan3395">issuing appropriate commands to VNF Manager </tspan></tspan><tspan
+               sodipodi:role="line"
+               x="654.71875"
+               y="102.83655"
+               id="tspan3397"><tspan
+                 dx="0 0 0 0 0.88002205 0 0 0 0 0 0.88002396 0 0 0 0 0 0 0 0 0 0 0 0 0 0.88002014 0 0 0 0 0 0.88002014 0 0 0 0.88002014 0 0 0 0 0 0 0 0.88002014"
+                 x="654.71875"
+                 y="102.83655"
+                 style="font-size:11px;line-height:89.99999762%;font-family:Ubuntu Condensed;-inkscape-font-specification:'Ubuntu Condensed,'"
+                 id="tspan3399">and VIM.  Authorization using the OSS/BSS and </tspan></tspan><tspan
+               sodipodi:role="line"
+               x="654.71875"
+               y="112.73655"
+               id="tspan3401"><tspan
+                 dx="0 0 0 0 0 0 0 3.923502 0 0 0 0 0 0 0 0 3.9235077 0 0 0 3.9235001 0 0 0 0 3.9235001 0 0 0 0 0 0 0 0 0 0 3.9234924 0 0 3.9235077"
+                 x="654.71875"
+                 y="112.73655"
+                 style="font-size:11px;line-height:89.99999762%;font-family:Ubuntu Condensed;-inkscape-font-specification:'Ubuntu Condensed,'"
+                 id="tspan3403">global resource are also prerformed by the </tspan></tspan><tspan
+               sodipodi:role="line"
+               x="654.71875"
+               y="122.63655"
+               id="tspan3405"><tspan
+                 dx="0 0 0 0 0 0 2.2490234 0 0 0 0 0 0 0 0 0 2.2490234 0 0 0 0 0 0 0 0 0 0 2.2490234 0 0 0 0 2.2490234"
+                 x="654.71875"
+                 y="122.63655"
+                 style="font-size:11px;line-height:89.99999762%;font-family:Ubuntu Condensed;-inkscape-font-specification:'Ubuntu Condensed,'"
+                 id="tspan3407">MANO. Projects: OpenBaton, ONAP (OPEN-O), </tspan></tspan><tspan
+               sodipodi:role="line"
+               x="654.71875"
+               y="132.53654"
+               id="tspan3409"><tspan
+                 x="654.71875"
+                 y="132.53654"
+                 style="font-size:11px;line-height:89.99999762%;font-family:Ubuntu Condensed;-inkscape-font-specification:'Ubuntu Condensed,'"
+                 id="tspan3411">OSM, Tacker, Cloudify.</tspan></tspan></text>
+        </g>
+      </g>
+      <flowRoot
+         xml:space="preserve"
+         id="flowRoot3193"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         transform="translate(-0.5,-0.5)"><flowRegion
+           id="flowRegion3195"><rect
+             id="rect3197"
+             width="191.94331"
+             height="93.354248"
+             x="655.22467"
+             y="38.518223" /></flowRegion><flowPara
+           id="flowPara3199" /></flowRoot>    </g>
+    <g
+       id="vnf-manager-callout"
+       transform="translate(-0.87246963,-0.87246963)"
+       style="display:none">
+      <g
+         id="g3252">
+        <g
+           id="g3257">
+          <path
+             style="fill:#fff2cc;stroke:#000000;stroke-width:2;stroke-miterlimit:10"
+             inkscape:connector-curvature="0"
+             id="path246"
+             stroke-miterlimit="10"
+             d="m 673.5,296 -17.5,0 c -2.76,0 -5,-2.24 -5,-5 l 0,-95 c 0,-2.76 2.24,-5 5,-5 l 190,0 c 2.76,0 5,2.24 5,5 l 0,95 c 0,2.76 -2.24,5 -5,5 l -157.5,0 c -2.96,7.77 -11.71,13.6 -22.5,15 3.89,-2.85 6.68,-8.43 7.5,-15 z" />
+        </g>
+      </g>
+      <text
+         xml:space="preserve"
+         style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:89.99999762%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu Condensed;-inkscape-font-specification:'Ubuntu Condensed,'"
+         x="652.96875"
+         y="200.46779"
+         id="text3413"
+         sodipodi:linespacing="89.999998%"><tspan
+           sodipodi:role="line"
+           x="652.96875"
+           y="200.46779"
+           id="tspan3415"><tspan
+             dx="0 0 0 0 0 0 0 0 0 0 0 0 6.6948242 0 0 0 6.6948242 0 0 0 6.6948242 0 0 0 0 0 0 0 0 0 6.6948242"
+             x="652.96875"
+             y="200.46779"
+             id="tspan3417">Responsible for the lifecycle management </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="652.96875"
+           y="210.36778"
+           id="tspan3419"><tspan
+             dx="0 0 0 0 0 0 0 0 0 0 0 1.1518555 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.1518555 0 0 0 0 0 0 0 0 1.1518555 0 0 0 0 0 0 0 0 0 1.1518555"
+             x="652.96875"
+             y="210.36778"
+             id="tspan3421">(creation, configuration, upgrade, teardown) of </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="652.96875"
+           y="220.26778"
+           id="tspan3423"><tspan
+             dx="0 0 0 0 8.2470703 0 0 0 0 0 0 0 0 0 8.2470703 0 0 0 0 0 0 0 0 8.2470703 0 0 0 0 0 0 0 0 0 0 0 0 8.2470703"
+             x="652.96875"
+             y="220.26778"
+             id="tspan3425">NFV services. Provides autoscaling, fault </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="652.96875"
+           y="230.16777"
+           id="tspan3427"><tspan
+             dx="0 0 0 0 0 0 0 0 0 0 0 0 0.21250153 0 0 0 0.21250153 0 0 0 0 0 0 0 0 0 0 0.2124939 0 0 0.21250916 0 0 0 0 0 0 0 0 0 0.2124939"
+             x="652.96875"
+             y="230.16777"
+             id="tspan3429">management, and monitoring of Services. There </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="652.96875"
+           y="240.06776"
+           id="tspan3431"><tspan
+             dx="0 0 0 0 1.3623047 0 0 1.3623047 0 0 0 0 0 0 0 0 1.3623047 0 0 0 0 0 0 1.3623047 0 0 0 0 1.3623047 0 0 0 0 0 0 0 0 0 0 0 1.3623047"
+             x="652.96875"
+             y="240.06776"
+             id="tspan3433">may be multiple VNFMs, both open-source and </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="652.96875"
+           y="249.96776"
+           id="tspan3435"><tspan
+             dx="0 0 0 0 0 0 0 0 0 0 0 0 6.4042969 0 0 0 0 0 0 0 0 0 6.4042969 0 0 6.4042969 0 0 0 6.4042969 0 0 0 6.4042969"
+             x="652.96875"
+             y="249.96776"
+             id="tspan3437">proprietary depending on the VNF being </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="652.96875"
+           y="259.86774"
+           id="tspan3439"><tspan
+             dx="0 0 0 0 0 0 0 0 0 3.3105469 0 0 0 3.3105469 0 0 0 0 3.3105469 0 0 0 0 0 0 0 0 0 0 0 0 3.3105469 0 0 0 0 3.3105469"
+             x="652.96875"
+             y="259.86774"
+             id="tspan3441">managed. The VNFM communicates with the </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="652.96875"
+           y="269.76773"
+           id="tspan3443"><tspan
+             dx="0 0 0 0 2.380022 0 0 0 0 0 0 0 2.3800201 0 0 0 2.3800201 0 0 0 0 2.3800201 0 0 0 0 0 0 0 0 0 0 2.3800201 0 0 0 0 2.3800201"
+             x="652.96875"
+             y="269.76773"
+             id="tspan3445">VNF through the EMS. Projects:  Open Baton </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="652.96875"
+           y="279.66776"
+           id="tspan3447"><tspan
+             dx="0 0 0 0 0 0 0 0 2.4554672 0 0 0 0 0 2.4554672 0 0 0 0 2.4554749 0 0 0 0 0 2.4554672 0 0 0 0 0 0 0 0 0 2.4554749"
+             x="652.96875"
+             y="279.66776"
+             id="tspan3449">Generic VNFM, Juju VNFM, OpenStack Tacker. </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="652.96875"
+           y="289.56772"
+           id="tspan3451"><tspan
+             x="652.96875"
+             y="289.56772"
+             id="tspan3453">ONAP, Cloudify Generic VNFM, Weaver.</tspan></tspan></text>
+    </g>
+    <g
+       id="vim-callout"
+       style="display:none">
+      <g
+         id="g3272">
+        <g
+           id="g3269">
+          <path
+             id="path252"
+             stroke-miterlimit="10"
+             d="m 673.5,476 -17.5,0 c -2.76,0 -5,-2.24 -5,-5 l 0,-95 c 0,-2.76 2.24,-5 5,-5 l 190,0 c 2.76,0 5,2.24 5,5 l 0,95 c 0,2.76 -2.24,5 -5,5 l -157.5,0 c -2.96,7.77 -11.71,13.6 -22.5,15 3.89,-2.85 6.68,-8.43 7.5,-15 z"
+             inkscape:connector-curvature="0"
+             style="fill:#fff2cc;stroke:#000000;stroke-width:2;stroke-miterlimit:10" />
+        </g>
+        <text
+           xml:space="preserve"
+           style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:89.99999762%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu Condensed;-inkscape-font-specification:'Ubuntu Condensed,'"
+           x="654.71875"
+           y="381.93655"
+           id="text3455"
+           sodipodi:linespacing="89.999998%"><tspan
+             sodipodi:role="line"
+             x="654.71875"
+             y="381.93655"
+             id="tspan3457"><tspan
+               dx="0 0 0 0 0 0 0 0 0 0 0 0 3.0832024 0 0 0 3.0831985 0 0 0 0 0 0 0 0 3.0832062 0 0 0 3.0831985 0 0 0 0 0 0 0 0 0 3.0832062"
+               x="654.71875"
+               y="381.93655"
+               id="tspan3459">Responsible for creation and managment of </tspan></tspan><tspan
+             sodipodi:role="line"
+             x="654.71875"
+             y="391.83652"
+             id="tspan3461"><tspan
+               dx="0 0 0 0 0 0 0 0 2.8425789 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.8425827 0 2.8425751 0 0 0 2.8425827 0 0 0 0 0 0 0 0 0 0 2.8425751"
+               x="654.71875"
+               y="391.83652"
+               id="tspan3463">virtual infrastructure. A VIM coordiates with </tspan></tspan><tspan
+             sodipodi:role="line"
+             x="654.71875"
+             y="401.73651"
+             id="tspan3465"><tspan
+               dx="0 0 0 0 0 0 0 0 7.3843765 0 0 0 7.3843727 0 0 0 0 0 0 0 7.3843689 0 0 7.3843765 0 0 0 0 0 0 0 7.3843689"
+               x="654.71875"
+               y="401.73651"
+               id="tspan3467">various sub modules to provide Virtual </tspan></tspan><tspan
+             sodipodi:role="line"
+             x="654.71875"
+             y="411.63651"
+             id="tspan3469"><tspan
+               dx="0 0 0 0 0 0 0 0 0 0 0 8.6396484 0 0 0 0 0 0 0 8.6396484 0 0 0 0 0 0 0 8.6396484 0 0 0 8.6396484"
+               x="654.71875"
+               y="411.63651"
+               id="tspan3471">Computing, Virtual Storage and Virtual </tspan></tspan><tspan
+             sodipodi:role="line"
+             x="654.71875"
+             y="421.5365"
+             id="tspan3473"><tspan
+               dx="0 0 0 0 0 0 0 0 0 0 0 0 5.2612305 0 0 0 0 0 0 0 0 5.2612305 0 0 0 0 5.2612305 0 0 0 5.2612305"
+               x="654.71875"
+               y="421.5365"
+               id="tspan3475">Networking. Elements like SDN controllers </tspan></tspan><tspan
+             sodipodi:role="line"
+             x="654.71875"
+             y="431.43652"
+             id="tspan3477"><tspan
+               dx="0 0 0 0 0 0 5.0683594 0 0 0 0 0 0 0 5.0683594 0 0 0 0 0 0 0 5.0683594 0 0 0 0 0 0 0 0 0 0 5.0683594 0 0 0 5.0683594"
+               x="654.71875"
+               y="431.43652"
+               id="tspan3479">which provide virutal networking are also </tspan></tspan><tspan
+             sodipodi:role="line"
+             x="654.71875"
+             y="441.33649"
+             id="tspan3481"><tspan
+               dx="0 0 0 0 0 0 0 0 5.7011719 0 0 5.7011719 0 0 5.7011719 0 5.7011719 0 0 0 0 5.7011719 0 0 5.7011719 0 0 0 0 5.7011719"
+               x="654.71875"
+               y="441.33649"
+               id="tspan3483">assumed to be a part of VIM. Projects: </tspan></tspan><tspan
+             sodipodi:role="line"
+             x="654.71875"
+             y="451.23648"
+             id="tspan3485"><tspan
+               x="654.71875"
+               y="451.23648"
+               id="tspan3487">Openstack, Kubernetes, CloudStack.</tspan></tspan></text>
+      </g>
+    </g>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4048"
+       style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:89.99999762%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu Condensed;-inkscape-font-specification:'Ubuntu Condensed,'"><flowRegion
+         id="flowRegion4050"><rect
+           id="rect4052"
+           width="1.7449392"
+           height="12.214575"
+           x="384.75909"
+           y="81.269234" /></flowRegion><flowPara
+         id="flowPara4054" /></flowRoot>    <g
+       id="oss-bss-callout"
+       style="display:none">
+      <g
+         id="g3127">
+        <path
+           id="path3129"
+           transform="matrix(-1,0,0,1,242,0)"
+           stroke-miterlimit="10"
+           d="M 37.5,118 26,118 c -2.76,0 -5,-2.24 -5,-5 l 0,-97 c 0,-2.76 2.24,-5 5,-5 l 190,0 c 2.76,0 5,2.24 5,5 l 0,97 c 0,2.76 -2.24,5 -5,5 l -165.5,0 c -2.57,6.73 -10.15,11.79 -19.5,13 3.38,-2.47 5.79,-7.3 6.5,-13 z"
+           inkscape:connector-curvature="0"
+           style="fill:#fff2cc;stroke:#000000;stroke-width:2;stroke-miterlimit:10" />
+        <g
+           id="g3131"
+           font-size="13px"
+           style="font-size:13px;fill:#000000;font-family:Lucida Console" />
+      </g>
+      <text
+         xml:space="preserve"
+         style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:89.99999762%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu Condensed;-inkscape-font-specification:'Ubuntu Condensed,'"
+         x="23.9375"
+         y="21.624037"
+         id="text3193"
+         sodipodi:linespacing="89.999998%"><tspan
+           sodipodi:role="line"
+           x="23.9375"
+           y="21.624037"
+           id="tspan3195"><tspan
+             dx="0 0 0 0 8.2089844 0 0 0 0 0 0 0 0 0 0 8.2089844 0 0 0 0 0 0 0 8.2089844"
+             x="23.9375"
+             y="21.624037"
+             id="tspan3197">The Operations Support Systems/Business </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="23.9375"
+           y="31.524036"
+           id="tspan3199"><tspan
+             dx="0 0 0 0 0 0 0 0 5.0757828 0 0 0 0 0 0 0 5.0757828 0 0 0 5.0757751 0 0 0 5.0757828 0 0 0 0 0 0 0 0 0 0 0 0 5.0757751"
+             x="23.9375"
+             y="31.524036"
+             id="tspan3201">Support Systems are the applications that </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="23.9375"
+           y="41.424034"
+           id="tspan3203"><tspan
+             dx="0 0 0 0 0 0 0 3.5074234 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.5074234 0 0 0 0 3.5074158 0 0 0 0 0 0 0 0 3.507431 0 0 0 0 0 0 3.5074158"
+             x="23.9375"
+             y="41.424034"
+             id="tspan3205">enable functionalties like billing, order, call </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="23.9375"
+           y="51.324036"
+           id="tspan3207"><tspan
+             dx="0 0 0 0 0 0 0 0.65673828 0 0 0 0 0 0 0 0 0 0 0 0.65673828 0 0 0 0 0 0 0 0 0.65673828 0 0 0 0 0 0 0 0 0 0 0.65673828"
+             x="23.9375"
+             y="51.324036"
+             id="tspan3209">center automation, customer management and </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="23.9375"
+           y="61.224033"
+           id="tspan3211"><tspan
+             dx="0 0 0 0 0 0 2.987793 0 0 0 0 0 0 0 0 0 0 0 2.987793 0 0 0 0 0 0 0 0 0 0 0 0 0 2.987793 0 0 0 0 0 2.987793"
+             x="23.9375"
+             y="61.224033"
+             id="tspan3213">other back-office applications. These systems </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="23.9375"
+           y="71.124039"
+           id="tspan3215"><tspan
+             dx="0 0 0 0 0 3.1651783 0 0 3.1651764 0 0 3.1651802 0 0 0 0 0 0 3.1651764 0 0 0 0 0 0 0 0 0 0 0 3.1651764 0 0 0 3.1651764 0 0 0 3.1651764"
+             x="23.9375"
+             y="71.124039"
+             id="tspan3217">tend to be mostly proprietary and are very </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="23.9375"
+           y="81.02404"
+           id="tspan3219"><tspan
+             dx="0 0 0 0 0 0 0 2.5110683 0 0 0 0 0 0 0 0 0 0 0 2.5110626 0 0 2.5110703 0 0 0 0 0 0 0 2.5110626 0 0 0 0 2.5110779 0 0 0 2.5110626"
+             x="23.9375"
+             y="81.02404"
+             id="tspan3221">rigid. Integration of OSS/BSS with the newer </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="23.9375"
+           y="90.924042"
+           id="tspan3223"><tspan
+             dx="0 0 0 0 8.2138672 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8.2138672 0 0 0 0 0 0 0 8.2138672 0 0 8.2138672"
+             x="23.9375"
+             y="90.924042"
+             id="tspan3225">NFV infrastructure remains an unsolved </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="23.9375"
+           y="100.82404"
+           id="tspan3227"><tspan
+             x="23.9375"
+             y="100.82404"
+             id="tspan3229">problem.</tspan></tspan></text>
+    </g>
+    <g
+       id="servicedef-callout"
+       style="display:none">
+      <g
+         id="g3127-5"
+         transform="translate(213.52834,35.070853)">
+        <path
+           id="path3129-4"
+           transform="matrix(-1,0,0,1,242,0)"
+           stroke-miterlimit="10"
+           d="M 37.5,118 26,118 c -2.76,0 -5,-2.24 -5,-5 l 0,-97 c 0,-2.76 2.24,-5 5,-5 l 190,0 c 2.76,0 5,2.24 5,5 l 0,97 c 0,2.76 -2.24,5 -5,5 l -165.5,0 c -2.57,6.73 -10.15,11.79 -19.5,13 3.38,-2.47 5.79,-7.3 6.5,-13 z"
+           inkscape:connector-curvature="0"
+           style="fill:#fff2cc;stroke:#000000;stroke-width:2;stroke-miterlimit:10" />
+        <g
+           id="g3131-8"
+           font-size="13px"
+           style="font-size:13px;fill:#000000;font-family:Lucida Console" />
+      </g>
+      <text
+         xml:space="preserve"
+         style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:89.99999762%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu Condensed;-inkscape-font-specification:'Ubuntu Condensed,'"
+         x="235.0625"
+         y="56.530289"
+         id="text3495"
+         sodipodi:linespacing="89.999998%"><tspan
+           sodipodi:role="line"
+           x="235.0625"
+           y="56.530289"
+           id="tspan3497"><tspan
+             dx="0 0 0 0 0 0 0 0 0 0 0 3.1982422 0 0 0 3.1982422 0 3.1982422 0 0 0 3.1982422 0 0 0 0 0 0 0 3.1982422 0 0 3.1982422"
+             x="235.0625"
+             y="56.530289"
+             id="tspan3499">fDescribes how a NFV service is constructed. </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="235.0625"
+           y="66.43029"
+           id="tspan3501"><tspan
+             dx="0 0 0 0 0 0 0.23144531 0 0 0 0.23144531 0 0 0 0 0 0 0 0.23144531 0 0 0 0 0 0 0 0 0.23144531 0 0 0.23144531 0 0 0 0.23144531 0 0 0 0.23144531 0 0 0 0 0.23144531"
+             x="235.0625"
+             y="66.43029"
+             id="tspan3503">Lists the various elements in the NFV flow graph </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="235.0625"
+           y="76.330292"
+           id="tspan3505"><tspan
+             dx="0 0 0 0 9.6044922 0 0 0 0 0 0 0 0 0 9.6044922 0 0 0 9.6044922 0 0 0 0 0 0 0 0 0 0 0 0 9.6044922"
+             x="235.0625"
+             y="76.330292"
+             id="tspan3507">and describes the relationship between </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="235.0625"
+           y="86.230293"
+           id="tspan3509"><tspan
+             dx="0 0 0 0 0 0 0 0 0 0 0 3.5244141 0 0 0 0 0 0 0 0 0 0 0 3.5244141 0 0 0 0 0 3.5244141 0 0 0 0 0 0 0 0 0 3.5244141"
+             x="235.0625"
+             y="86.230293"
+             id="tspan3511">individual components. TOSCA (Topology and </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="235.0625"
+           y="96.130295"
+           id="tspan3513"><tspan
+             dx="0 0 0 0 0 0 0 0 0 0 0 0 0 0 15.727867 0 0 0 0 0 0 0 0 0 0 0 0 0 15.727867 0 0 0 15.727859"
+             x="235.0625"
+             y="96.130295"
+             id="tspan3515">Orchestration Specification for Cloud </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="235.0625"
+           y="106.03029"
+           id="tspan3517"><tspan
+             dx="0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.6181641 0 0 0 2.6181641 0 0 0 0 2.6181641 0 0 0 2.6181641 0 0 0 2.6181641 0 0 0 0 0 0 0 2.6181641"
+             x="235.0625"
+             y="106.03029"
+             id="tspan3519">Applications) and YANG are two popular data </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="235.0625"
+           y="115.9303"
+           id="tspan3521"><tspan
+             dx="0 0 0 0 0 0 0 0 0 3.6028633 0 0 0 0 0 0 0 0 0 3.6028595 0 0 0 0 3.6028671 0 0 3.6028595 0 0 0 3.6028748 0 0 0 3.6028595"
+             x="235.0625"
+             y="115.9303"
+             id="tspan3523">modeling languages used in the NFV world. </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="235.0625"
+           y="125.8303"
+           id="tspan3525"><tspan
+             dx="0 0 0 0 0 0 8.1038399 0 0 8.1038437 0 0 0 0 8.1038437 0 0 0 0 0 0 8.1038437 0 0 8.1038513 0 0 0 0 0 0 8.1038361"
+             x="235.0625"
+             y="125.8303"
+             id="tspan3527">TOSCA is more suited to define cloud </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="235.0625"
+           y="135.7303"
+           id="tspan3529"><tspan
+             dx="0 0 0 0 0 0 0 0 0 0 0 5.2128906 0 0 0 5.2128906 0 0 0 0 5.2128906 0 0 5.2128906 0 0 0 0 0 0 0 0 5.2128906"
+             x="235.0625"
+             y="135.7303"
+             id="tspan3531">components and YANG is targeted towards </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="235.0625"
+           y="145.63029"
+           id="tspan3533"><tspan
+             x="235.0625"
+             y="145.63029"
+             id="tspan3535">defining network components.</tspan></tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:89.99999762%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu Condensed;-inkscape-font-specification:'Ubuntu Condensed,'"
+       x="272.21051"
+       y="76.034416"
+       id="text4160"
+       sodipodi:linespacing="89.999998%"
+       transform="translate(-0.5,-0.5)"><tspan
+         sodipodi:role="line"
+         id="tspan4162"
+         x="272.21051"
+         y="76.034416" /></text>
+    <g
+       id="ems-callout"
+       style="display:none">
+      <g
+         id="g3127-1"
+         transform="translate(84.402832,105.74089)">
+        <g
+           id="g4181">
+          <path
+             style="fill:#fff2cc;stroke:#000000;stroke-width:2;stroke-miterlimit:10"
+             inkscape:connector-curvature="0"
+             d="M 37.5,118 26,118 c -2.76,0 -5,-2.24 -5,-5 l 0,-97 c 0,-2.76 2.24,-5 5,-5 l 190,0 c 2.76,0 5,2.24 5,5 l 0,97 c 0,2.76 -2.24,5 -5,5 l -165.5,0 c -2.57,6.73 -10.15,11.79 -19.5,13 3.38,-2.47 5.79,-7.3 6.5,-13 z"
+             stroke-miterlimit="10"
+             transform="matrix(-1,0,0,1,242,0)"
+             id="path3129-35" />
+        </g>
+      </g>
+      <text
+         xml:space="preserve"
+         style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:89.99999762%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu Condensed;-inkscape-font-specification:'Ubuntu Condensed,'"
+         x="107.6875"
+         y="127.18654"
+         id="text3235"
+         sodipodi:linespacing="89.999998%"><tspan
+           sodipodi:role="line"
+           x="107.6875"
+           y="127.18654"
+           id="tspan3237"><tspan
+             dx="0 0 0 0 0 0 0 0 0 0 1.2768555 0 0 0 0 0 0 0 0 0 0 1.2768555 0 0 0 0 0 0 0 1.2768555 0 0 0 0 0 1.2768555"
+             x="107.6875"
+             y="127.18654"
+             id="tspan3239">Elemental Management Systems (EMS) provide </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="107.6875"
+           y="137.08653"
+           id="tspan3241"><tspan
+             dx="0 0 0 0 0.027668953 0 0 0 0 0 0 0 0 0 0.027671814 0 0 0 0 0 0 0 0.027671814 0 0 0 0.027671814 0 0 0 0 0 0 0 0.027679443 0 0 0 0.027664185"
+             x="107.6875"
+             y="137.08653"
+             id="tspan3243">the interface between VNF Manager and various </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="107.6875"
+           y="146.98653"
+           id="tspan3245"><tspan
+             dx="0 0 0 0 0 1.1715965 0 0 0 1.1715965 0 0 0 1.1715965 0 0 0 0 0 0 0 1.1716003 0 0 0 0 0 0 0 0 0 1.1716003 0 0 1.1715851 0 0 0 1.1716003"
+             x="107.6875"
+             y="146.98653"
+             id="tspan3247">VNFs for the network managment of the given </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="107.6875"
+           y="156.88652"
+           id="tspan3249"><tspan
+             dx="0 0 0 0 0 0 6.3109379 0 0 0 0 6.3109398 0 0 0 6.3109436 0 0 0 0 0 0 0 0 0 0 0 6.3109283 0 0 0 6.3109436"
+             x="107.6875"
+             y="156.88652"
+             id="tspan3251">VNFs. They are responsible for recieiving </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="107.6875"
+           y="166.78651"
+           id="tspan3253"><tspan
+             dx="0 0 0 0 0 0 0 0 0 0.90852737 0 0 0 0 0.90852356 0 0 0 0.90853119 0 0 0 0 0.90853119 0 0 0 0.90853882 0 0 0 0 0 0 0 0 0 0 0 0.90852356"
+             x="107.6875"
+             y="166.78651"
+             id="tspan3255">commands from the VNFM and configuring the </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="107.6875"
+           y="176.68651"
+           id="tspan3257"><tspan
+             dx="0 0 0 0 0 0 2.1303253 0 0 0 0 0 2.1303253 0 0 0 2.1303253 0 0 2.1303253 0 0 0 2.1303253 0 0 0 2.1303253 0 0 0 2.1303253 0 0 0 0 2.1303253 0 0 2.1303253"
+             x="107.6875"
+             y="176.68651"
+             id="tspan3259">VNF.  There can be one EMS per VNF  or for </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="107.6875"
+           y="186.5865"
+           id="tspan3261"><tspan
+             x="107.6875"
+             y="186.5865"
+             id="tspan3263">multiple VNFs. </tspan></tspan></text>
+    </g>
+    <g
+       transform="translate(-8.9514212,311.64373)"
+       id="virt-callout"
+       style="display:none">
+      <g
+         id="g4256">
+        <path
+           id="path3129-7"
+           transform="matrix(-1,0,0,1,242,0)"
+           stroke-miterlimit="10"
+           d="M 37.5,118 26,118 c -2.76,0 -5,-2.24 -5,-5 l 0,-97 c 0,-2.76 2.24,-5 5,-5 l 190,0 c 2.76,0 5,2.24 5,5 l 0,97 c 0,2.76 -2.24,5 -5,5 l -165.5,0 c -2.57,6.73 -10.15,11.79 -19.5,13 3.38,-2.47 5.79,-7.3 6.5,-13 z"
+           inkscape:connector-curvature="0"
+           style="fill:#fff2cc;stroke:#000000;stroke-width:2;stroke-miterlimit:10" />
+        <text
+           xml:space="preserve"
+           style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:89.99999762%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu Condensed;-inkscape-font-specification:'Ubuntu Condensed,'"
+           x="23.295172"
+           y="22.324074"
+           id="text3333"
+           sodipodi:linespacing="89.999998%"><tspan
+             sodipodi:role="line"
+             x="23.295172"
+             y="22.324074"
+             id="tspan3335"><tspan
+               dx="0 0 0 0 0 0 0 0 0 2.0911446 0 0 0 2.0911484 0 0 0 0 0 0 0 2.0911484 0 0 0 0 0 2.0911484 0 0 0 0 2.091156 0 0 0 2.0911407"
+               x="23.295172"
+               y="22.324074"
+               id="tspan3337">Isolates the virtual layer from the underlying </tspan></tspan><tspan
+             sodipodi:role="line"
+             x="23.295172"
+             y="32.224037"
+             id="tspan3339"><tspan
+               dx="0 0 0 0 0 0 0 0 0 0 0.88444138 0 0 0 0 0 0 0 0.88444519 0 0 0 0 0 0 0 0.88443756 0 0 0 0 0 0 0 0 0 0.88444519 0 0 0.88442993 0 0 0 0.88444519"
+               x="23.295172"
+               y="32.224037"
+               id="tspan3341">hardware. Exposes virtual resources to the VNF </tspan></tspan><tspan
+             sodipodi:role="line"
+             x="23.295172"
+             y="42.124031"
+             id="tspan3343"><tspan
+               dx="0 0 0 0 0 0 3.838541 0 0 3.8385391 0 0 0 3.8385429 0 0 3.8385391 0 0 0 0 0 0 0 0 0 3.8385468 0 0 0 3.8385468"
+               x="23.295172"
+               y="42.124031"
+               id="tspan3345">where it can be executed. For performance </tspan></tspan><tspan
+             sodipodi:role="line"
+             x="23.295172"
+             y="52.024025"
+             id="tspan3347"><tspan
+               dx="0 0 0 0 0 0 0 0 0 0.15039062 0 0 0 0.15039062 0 0 0 0.15039062 0 0 0 0.15039062 0 0 0.15039062 0 0 0 0 0 0 0 0 0.15039062 0 0 0.15039062 0 0 0 0 0.15039062"
+               x="23.295172"
+               y="52.024025"
+               id="tspan3349">reasons, the VNF may be required to have direct </tspan></tspan><tspan
+             sodipodi:role="line"
+             x="23.295172"
+             y="61.924019"
+             id="tspan3351"><tspan
+               dx="0 0 0 0 0 0 0 2.1842442 0 0 2.1842422 0 0 0 2.1842461 0 0 0 0 0 0 0 0 0 0 2.1842422 0 0 0 0 0 0 0 0 2.1842346 0 0 0 0 2.1842499"
+               x="23.295172"
+               y="61.924019"
+               id="tspan3353">access to the underlying hardware (eg: NICs). </tspan></tspan><tspan
+             sodipodi:role="line"
+             x="23.295172"
+             y="71.824043"
+             id="tspan3355"><tspan
+               dx="0 0 0 0 4.6749992 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.6749954 0 0 0 0 0 4.6750031 0 0 4.6749954 0 0 0 0 0 0 0 0 0 0 0 0 4.6750031"
+               x="23.295172"
+               y="71.824043"
+               id="tspan3357">The Virtualization layer is responseible for </tspan></tspan><tspan
+             sodipodi:role="line"
+             x="23.295172"
+             y="81.724007"
+             id="tspan3359"><tspan
+               dx="0 0 0 0 0 0 0 0 0 1.8834648 0 0 1.883461 0 0 1.8834648 0 0 0 1.883461 0 0 0 1.8834686 0 0 0 0 0 0 0 1.8834686"
+               x="23.295172"
+               y="81.724007"
+               id="tspan3361">exposing it to the VNF without compromizing </tspan></tspan><tspan
+             sodipodi:role="line"
+             x="23.295172"
+             y="91.624001"
+             id="tspan3363"><tspan
+               dx="0 0 0 0 4.4794922 0 0 0 0 0 0 0 0 4.4794922 0 0 0 4.4794922 0 0 0 0 0 0 0 0 0 0 4.4794922 0 0 4.4794922 0 0 0 0 0 4.4794922"
+               x="23.295172"
+               y="91.624001"
+               id="tspan3365">the security and isoloation of other VNFs. </tspan></tspan><tspan
+             sodipodi:role="line"
+             x="23.295172"
+             y="101.52402"
+             id="tspan3367"><tspan
+               x="23.295172"
+               y="101.52402"
+               id="tspan3369">Projects: KVM, VMWare, Xen, LXC, Docker</tspan></tspan></text>
+      </g>
+    </g>
+    <g
+       id="nfvi-callout"
+       transform="translate(3.4898786,119.52834)"
+       style="display:none">
+      <path
+         id="path264"
+         transform="matrix(-1,0,0,1,222,0)"
+         stroke-miterlimit="10"
+         d="M 27.5,363 16,363 c -2.76,0 -5,-2.24 -5,-5 l 0,-97 c 0,-2.76 2.24,-5 5,-5 l 190,0 c 2.76,0 5,2.24 5,5 l 0,97 c 0,2.76 -2.24,5 -5,5 l -165.5,0 c -2.57,6.73 -10.15,11.79 -19.5,13 3.38,-2.47 5.79,-7.3 6.5,-13 z"
+         inkscape:connector-curvature="0"
+         style="fill:#fff2cc;stroke:#000000;stroke-width:2;stroke-miterlimit:10" />
+      <text
+         xml:space="preserve"
+         style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:89.99999762%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu Condensed;-inkscape-font-specification:'Ubuntu Condensed,'"
+         x="14.317561"
+         y="265.9053"
+         id="text3299"
+         sodipodi:linespacing="89.999998%"><tspan
+           sodipodi:role="line"
+           x="14.317561"
+           y="265.9053"
+           id="tspan3301"><tspan
+             dx="0 0 0 0 1.6029577 0 0 0 1.6029587 0 0 0 0 0 0 0 0 1.6029587 0 0 0 1.602951 0 0 0 0 0 0 0 0 1.6029587 0 0 0 0 0 1.6029663 0 0 0 0 0 1.602951"
+             x="14.317561"
+             y="265.9053"
+             id="tspan3303">All the hardware and software which build up </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="14.317561"
+           y="275.80527"
+           id="tspan3305"><tspan
+             dx="0 0 0 0 1.8199863 0 0 0 0 0 0 0 0 0 0 0 1.8199921 0 0 1.8199844 0 0 0 0 0 1.8199844 0 0 0 0 1.8199768 0 0 0 1.8199921"
+             x="14.317561"
+             y="275.80527"
+             id="tspan3307">the environment in which VNFs are deployed, </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="14.317561"
+           y="285.70526"
+           id="tspan3309"><tspan
+             dx="0 0 0 0 0 0 0 0 0.98085785 0 0 0 0.98086166 0 0 0 0 0 0 0 0 0 0.98086548 0 0 0 0 0 0 0 0 0.98085022 0 0 0.98086548"
+             x="14.317561"
+             y="285.70526"
+             id="tspan3311">managed and executed. Consists of commodity </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="14.317561"
+           y="295.60526"
+           id="tspan3313"><tspan
+             dx="0 0 0 0 0 0 0 0 0 1.9632149 0 0 0 1.9632187 0 0 0 0 0 0 0 0 0 0 0 1.9632187 0 0 0 0 0 0 0 0 0 1.9632111 0 0 0 0 0 1.9632263 0 0 1.9632111"
+             x="14.317561"
+             y="295.60526"
+             id="tspan3315">hardware and white-label switches. There is a </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="14.317561"
+           y="305.50525"
+           id="tspan3317"><tspan
+             dx="0 0 0 0 0 1.5100098 0 0 1.5100098 0 0 0 0 1.5100098 0 0 0 0 1.5100098 0 0 0 0 0 1.5100098 0 0 1.5100098 0 0 0 0 0 0 1.5100098 0 0 0 0 0 0 0 0 1.5100098"
+             x="14.317561"
+             y="305.50525"
+             id="tspan3319">push to make this layer as vendor agnostic as </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="14.317561"
+           y="315.40527"
+           id="tspan3321"><tspan
+             dx="0 0 0 0 0 0 0 0 0 0.5082016 0 0 0 0 0 0.50820541 0 0 0 0 0 0 0.50820923 0 0 0 0 0 0 0.5082016 0 0 0 0 0 0 0 0 0.50820923"
+             x="14.317561"
+             y="315.40527"
+             id="tspan3323">possible while moving vendor specific elements </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="14.317561"
+           y="325.30524"
+           id="tspan3325"><tspan
+             dx="0 0 0 0 0 6.6503906 0 6.6503906 0 0 0 0 0 0 0 6.6503906 0 0 0 0 0 0 0 0 0 0 0 6.6503906 0 0 0 0 6.6503906 0 0 0 6.6503906"
+             x="14.317561"
+             y="325.30524"
+             id="tspan3327">into a virtual environment like VMs or </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="14.317561"
+           y="335.20523"
+           id="tspan3329"><tspan
+             x="14.317561"
+             y="335.20523"
+             id="tspan3331">Containers. </tspan></tspan></text>
+    </g>
+    <g
+       id="vnf-callout"
+       style="display:none">
+      <g
+         id="g3127-25"
+         transform="translate(61.718622,165.9413)">
+        <path
+           id="path3129-5"
+           transform="matrix(-1,0,0,1,242,0)"
+           stroke-miterlimit="10"
+           d="M 37.5,118 26,118 c -2.76,0 -5,-2.24 -5,-5 l 0,-97 c 0,-2.76 2.24,-5 5,-5 l 190,0 c 2.76,0 5,2.24 5,5 l 0,97 c 0,2.76 -2.24,5 -5,5 l -165.5,0 c -2.57,6.73 -10.15,11.79 -19.5,13 3.38,-2.47 5.79,-7.3 6.5,-13 z"
+           inkscape:connector-curvature="0"
+           style="fill:#fff2cc;stroke:#000000;stroke-width:2;stroke-miterlimit:10" />
+        <g
+           id="g3131-6"
+           font-size="13px"
+           style="font-size:13px;fill:#000000;font-family:Lucida Console" />
+      </g>
+      <text
+         xml:space="preserve"
+         style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;line-height:89.99999762%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu Condensed;-inkscape-font-specification:'Ubuntu Condensed,'"
+         x="85.875"
+         y="189.12404"
+         id="text3265"
+         sodipodi:linespacing="89.999998%"><tspan
+           sodipodi:role="line"
+           x="85.875"
+           y="189.12404"
+           id="tspan3267"><tspan
+             dx="0 0 0 0 0 0 0 0 0 0 0 0 7.2924805 0 0 0 0 0 0 0 7.2924805 0 0 0 0 0 0 0 0 0 7.2924805 0 0 0 0 0 0 7.2924805"
+             x="85.875"
+             y="189.12404"
+             id="tspan3269">Virtualized Network Functions (VNFs) are </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="85.875"
+           y="199.02403"
+           id="tspan3271"><tspan
+             dx="0 0 0 0 0 0 0 0 6.3066406 0 0 0 0 0 0 0 0 6.3066406 0 0 0 0 6.3066406 0 0 0 0 0 0 0 6.3066406 0 6.3066406"
+             x="85.875"
+             y="199.02403"
+             id="tspan3273">network elements that provide a specific </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="85.875"
+           y="208.92403"
+           id="tspan3275"><tspan
+             dx="0 0 0 0 0 0 0 0 0 0 0 6.7083321 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6.7083282 0 0 0 0 0 0 0 0 6.7083282"
+             x="85.875"
+             y="208.92403"
+             id="tspan3277">networking functionality. Examples include </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="85.875"
+           y="218.82402"
+           id="tspan3279"><tspan
+             dx="0 0 0 0 0 0 0 0 0 0 1.3447266 0 0 0 0 1.3447266 0 0 0 1.3447266 0 0 0 0 1.3447266 0 0 0 0 1.3447266 0 0 0 0 1.3447266 0 0 0 0 1.3447266 0 0 0 1.3447266"
+             x="85.875"
+             y="218.82402"
+             id="tspan3281">Firewall, DNS, LB, NAT, CDN, IMS. VNFs can be </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="85.875"
+           y="228.72401"
+           id="tspan3283"><tspan
+             dx="0 0 0 0 0 4.9775391 0 0 0 0 0 0 0 0 0 0 0 4.9775391 0 0 0 0 0 0 0 0 0 0 0 4.9775391 0 0 4.9775391"
+             x="85.875"
+             y="228.72401"
+             id="tspan3285">both proprietary (Netscaler) or Opensource </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="85.875"
+           y="238.62401"
+           id="tspan3287"><tspan
+             dx="0 0 0 0 0 0 0.61962891 0 0 0 0.61962891 0 0 0 0.61962891 0 0 0 0.61962891 0 0 0 0 0 0 0.61962891 0 0 0.61962891 0 0 0 0.61962891 0 0 0.61962891"
+             x="85.875"
+             y="238.62401"
+             id="tspan3289">(OVS) and can run either on VMs or Containers. </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="85.875"
+           y="248.524"
+           id="tspan3291"><tspan
+             dx="0 0 0 0 0 1.3740234 0 0 0 1.3740234 0 0 1.3740234 0 0 0 0 0 0 1.3740234 0 0 0 0 0 0 0 0 1.3740234 0 0 0 0 0 0 0 0 1.3740234"
+             x="85.875"
+             y="248.524"
+             id="tspan3293">VNFs can be linked together (service chaining) </tspan></tspan><tspan
+           sodipodi:role="line"
+           x="85.875"
+           y="258.42398"
+           id="tspan3295"><tspan
+             x="85.875"
+             y="258.42398"
+             id="tspan3297">to impelement a higher level network service.  </tspan></tspan></text>
+    </g>
+  </g>
+</svg>
+          </div>
+
+            <div class="container inner">
+              <h3 class="text-center">NFV Landscape</h3>
+            </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+</body>
